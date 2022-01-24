@@ -7,7 +7,12 @@ public class StudentMainPolymorphism {
         System.out.println(studentPolymorphism.getDetails());
         System.out.println(studentPolymorphism.computeFees());
 
-        ResearchStudentPolymorphism researchStudentPolymorphism = new ResearchStudentPolymorphism("Somesh Poly", 3, "Physics");
+        /* DYNAMIC Polymorphism = allow assign object of subclass reference to super class */
+
+        studentPolymorphism = new ResearchStudentPolymorphism("Somesh Dynamic Polymorphism", 3, "Physics");
+        System.out.println(studentPolymorphism.getDetails());
+
+        StudentPolymorphism researchStudentPolymorphism = new ResearchStudentPolymorphism("Somesh Poly", 3, "Physics");
         System.out.println(researchStudentPolymorphism.getDetails());
         System.out.println(researchStudentPolymorphism.computeFees(2000));
 

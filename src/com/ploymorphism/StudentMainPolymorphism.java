@@ -16,6 +16,19 @@ public class StudentMainPolymorphism {
         System.out.println(researchStudentPolymorphism.getDetails());
         System.out.println(researchStudentPolymorphism.computeFees(2000));
 
+        PhDStudentPolymorphism phDStudentPolymorphism = new PhDStudentPolymorphism("Hari",1, "Software engineering", "IOT" );
+        System.out.println(phDStudentPolymorphism.getDetails());
+
+        StudentPolymorphism [] array = {studentPolymorphism, researchStudentPolymorphism, phDStudentPolymorphism};
+        System.out.println("**************************************");
+        printDetails(array);
+
+    }
+
+    public static void printDetails(StudentPolymorphism[] studentPolymorphisms){
+        for(StudentPolymorphism studentPolymorphism : studentPolymorphisms){
+            System.out.println(studentPolymorphism.getDetails());
+        }
     }
 }
 
@@ -61,6 +74,19 @@ class ResearchStudentPolymorphism extends StudentPolymorphism {
     /*METHOD OVERRIDING = SAME METHOD WITH SAME ARGUMENT AND RETURN TYPE BUT ADDITIONAL INFO*/
     public String getDetails() {
         return super.getDetails() + '\n' + "Research Area : " + this.researchArea;
+    }
+
+
+}
+
+class PhDStudentPolymorphism extends ResearchStudentPolymorphism {
+    private String thesisTitle;
+
+    private static final int annualFees = 20000;
+
+    PhDStudentPolymorphism(String name, int year, String researchArea, String thesisTitle) {
+        super(name, year, researchArea);
+        this.thesisTitle = thesisTitle;
     }
 
 

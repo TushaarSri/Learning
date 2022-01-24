@@ -15,8 +15,8 @@ public class StudentMain {
 }
 
 class Student {
-    private final String name;
-    private int year;
+    protected final String name;
+    protected int year;
     private static final int annualFees = 10000;
 
     Student(String name, int year) {
@@ -47,8 +47,9 @@ class ResearchStudent extends Student {
         this.researchArea = researchArea;
     }
 
-    public String getDetails(){
-        return super.getDetails() + '\n' + "Research Area : "+ this.researchArea;
+    public String getDetails() {
+        return this.name + " is a research student with research area " + this.researchArea +
+                " and he/she is in his/her " + this.year;
     }
 
 

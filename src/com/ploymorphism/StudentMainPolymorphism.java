@@ -5,9 +5,11 @@ public class StudentMainPolymorphism {
 
         StudentPolymorphism studentPolymorphism = new StudentPolymorphism("Karan Poly", 2);
         System.out.println(studentPolymorphism.getDetails());
+        System.out.println(studentPolymorphism.computeFees());
 
         ResearchStudentPolymorphism researchStudentPolymorphism = new ResearchStudentPolymorphism("Somesh Poly", 3, "Physics");
         System.out.println(researchStudentPolymorphism.getDetails());
+        System.out.println(researchStudentPolymorphism.computeFees(2000));
 
     }
 }
@@ -29,6 +31,13 @@ class StudentPolymorphism {
 
     public float computeFees() {
         return this.year * StudentPolymorphism.annualFees;
+
+    }
+
+    /*Method Overloading = Method with same name but different type or number of argument, STATIC POLYMORPHISM*/
+    /*Static polymorphism = Compile Time*/
+    public float computeFees(int annualFees) {
+        return this.year * annualFees;
 
     }
 

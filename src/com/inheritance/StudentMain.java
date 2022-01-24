@@ -2,7 +2,7 @@ package com.inheritance;
 
 public class StudentMain {
     public static void main(String[] args) {
-        Student student = new Student("Karan" , 2);
+        Student student = new Student("Karan", 2);
         System.out.println(student.getDetails());
 
         ResearchStudent researchStudent = new ResearchStudent("Somesh", 3, "Physics");
@@ -11,10 +11,10 @@ public class StudentMain {
     }
 }
 
-class Student{
+class Student {
     private final String name;
-    private  int year;
-    private  static final int annualFees = 10000;
+    private int year;
+    private static final int annualFees = 10000;
 
     Student(String name, int year) {
         this.name = name;
@@ -22,10 +22,10 @@ class Student{
     }
 
     public String getDetails() {
-        return  "Name : "+name + '\n' + "Fees : "+this.computeFees();
+        return "Name : " + name + '\n' + "Fees : " + this.computeFees();
     }
 
-    public float computeFees(){
+    public float computeFees() {
         return this.year * Student.annualFees;
         /*annual fees is static fields so called using class reference*/
         /*Year is nonstatic belongs to specific object*/
@@ -34,28 +34,21 @@ class Student{
 
 }
 
-class ResearchStudent{
-    private final String name;
-    private  int year;
+class ResearchStudent extends Student {
     private String researchArea;
 
-    private  static final int annualFees = 20000;
+    private static final int annualFees = 20000;
 
     ResearchStudent(String name, int year, String researchArea) {
-        this.name = name;
-        this.year = year;
+        super(name, year);
         this.researchArea = researchArea;
-    }
-
-    public String getDetails() {
-        return  "Research Student Name : "+name + '\n' + "Fees : "+this.computeFees() + '\n' +"Course : "+this.researchArea;
-    }
-
-    public float computeFees(){
-        return this.year * ResearchStudent.annualFees;
-        /*annual fees is static fields so called using class reference*/
-        /*Year is nonstatic belongs to specific object*/
     }
 
 
 }
+
+
+
+
+
+

@@ -8,6 +8,9 @@ public class StudentMain {
         ResearchStudent researchStudent = new ResearchStudent("Somesh", 3, "Physics");
         System.out.println(researchStudent.getDetails());
 
+        PhDStudent phDStudent = new PhDStudent("Siddharth", 1, "Physics Advance", "Newtons Laws");
+        System.out.println(phDStudent.getDetails());
+
     }
 }
 
@@ -44,11 +47,22 @@ class ResearchStudent extends Student {
         this.researchArea = researchArea;
     }
 
+    public String getDetails(){
+        return super.getDetails() + '\n' + "Research Area : "+ this.researchArea;
+    }
+
 
 }
 
+class PhDStudent extends ResearchStudent {
+    private String thesisTitle;
+
+    private static final int annualFees = 20000;
+
+    PhDStudent(String name, int year, String researchArea, String thesisTitle) {
+        super(name, year, researchArea);
+        this.thesisTitle = thesisTitle;
+    }
 
 
-
-
-
+}

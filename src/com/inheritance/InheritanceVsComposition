@@ -1,0 +1,42 @@
+ we’ll also discuss a new concept called composition, which is another possible type of relationship between classes. We’ll tell you why composition is useful and when you should use it over inheritance, and vice versa.
+
+Some reasons to use composition over inheritance are:
+
+One reason for favouring Composition over Inheritance in Java is fact that Java doesn't support multiple inheritance.
+
+Though both Composition and Inheritance allows you to reuse code, one of the disadvantages of Inheritance is that it breaks encapsulation. If the subclass is depending on superclass behaviour for its operation, it suddenly becomes fragile. When the behaviour of superclass changes, functionality in the subclass may get broken, without any change on its part.
+
+Composition offers better test-ability of a class than Inheritance. If one class is composed of another class, you can easily create a Mock Object representing the composed class for sake of testing.
+
+Like, There are many more reasons to favour Composition over inheritance
+
+Let’s illustrate this relationship between a Shape class and a Rectangle class:
+
+
+[Shape] <--is a--- [Rectangle]
+Figure 1 - is-a relationship
+Now you know that shapes have some dimension. In this case, you can represent the dimensions of a shape with the help of a Dimension class. So now, the relationship between the Shape class and the Dimension class can be represented as follows:
+
+
+[Shape] ---has a ---> [Rectangle]
+Figure 2 - has-a relationship
+So, in the case of the Shape and Dimension classes, the composition relationship in a Java code will look like this:
+
+public class Shape {
+   Dimension dimension;
+}
+
+
+The statement ‘Dimension dimension;’ creates an instance/object of the Dimension class inside the Shape class, which can be used by the Square class and the Rectangle class, which inherits from the Shape class.
+
+Inheritance: The ability to create classes by making use of existing class’s members. This, in turn, lets you define a specialised version of the existing classes.
+Superclass and subclass: The class that is being inherited (the generalised class) is known as the superclass, while the class that inherits the features of a superclass is known as the subclass (or the specialised class).
+
+Extends keyword:  To inherit the features of a superclass and derive a new class from it, you can use the extends keyword.
+
+Super keyword: To call the superclass constructor from the subclass, or to refer to the superclass members from the subclass, you can use the super keyword.
+
+Relationships: There exist two types of relationships between classes in Java:
+Inheritance: is-a relationship
+Composition: has-a relationship
+Use inheritance when there is enough opportunity for code reuse; otherwise, use composition.

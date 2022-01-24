@@ -2,13 +2,18 @@ package com.inheritance;
 
 public class StudentMain {
     public static void main(String[] args) {
-        Student student = new Student("Karan", 2);
+
+        BankAccount bankAccount = new BankAccount(111, 1000);
+        BankAccount bankAccount2 = new BankAccount(222, 2000);
+        BankAccount bankAccount3 = new BankAccount(333, 3000);
+
+        Student student = new Student("Karan", 2, bankAccount);
         System.out.println(student.getDetails());
 
-        ResearchStudent researchStudent = new ResearchStudent("Somesh", 3, "Physics");
+        ResearchStudent researchStudent = new ResearchStudent("Somesh", 3, "Physics", bankAccount2);
         System.out.println(researchStudent.getDetails());
 
-        PhDStudent phDStudent = new PhDStudent("Siddharth", 1, "Physics Advance", "Newtons Laws");
+        PhDStudent phDStudent = new PhDStudent("Siddharth", 1, "Physics Advance", "Newtons Laws", bankAccount3);
         System.out.println(phDStudent.getDetails());
 
     }
@@ -17,11 +22,16 @@ public class StudentMain {
 class Student {
     protected final String name;
     protected int year;
+
+    /*Introduce Bank Account*/ /*A class can have attribute created by class*/
+    private BankAccount bankAccount;
+
     private static final int annualFees = 10000;
 
-    Student(String name, int year) {
+    Student(String name, int year, BankAccount bankAccount) {
         this.name = name;
         this.year = year;
+        this.bankAccount = bankAccount;
     }
 
     public String getDetails() {
@@ -42,8 +52,8 @@ class ResearchStudent extends Student {
 
     private static final int annualFees = 20000;
 
-    ResearchStudent(String name, int year, String researchArea) {
-        super(name, year);
+    ResearchStudent(String name, int year, String researchArea, BankAccount bankAccount) {
+        super(name, year, bankAccount);
         this.researchArea = researchArea;
     }
 
@@ -60,10 +70,20 @@ class PhDStudent extends ResearchStudent {
 
     private static final int annualFees = 20000;
 
-    PhDStudent(String name, int year, String researchArea, String thesisTitle) {
-        super(name, year, researchArea);
+    PhDStudent(String name, int year, String researchArea, String thesisTitle, BankAccount bankAccount) {
+        super(name, year, researchArea, bankAccount);
         this.thesisTitle = thesisTitle;
     }
 
 
+}
+
+class BankAccount {
+    private int accountNumber;
+    private int balance;
+
+    public BankAccount(int accountNumber, int balance){
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
 }

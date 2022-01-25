@@ -1,0 +1,16 @@
+Inheritance
+Description
+Create three classes – Shape, Triangle, and Rectangle – which constitute a method display that has to be overridden. You need to take the number of sides in a shape as the input and predict the kind of shape it is. The output of your program is as follows:
+If the number of the input side is 0, print “The shape is a circle”.
+If the number of the input side is 3, print “The shape is a triangle”.
+If the number of the input side is 4, print “The shape is a rectangle”.
+If the number of sides is anything other than 0, 3, or 4, print “Enter a valid number of sides!”.
+
+Input: The input should be an integer 'n' that represents number of sides in a shape.
+
+Output: The output will consist of one line that displays the kind of shape according to the number of sides.
+
+Sample Input
+3
+Sample Output
+The shape is a triangle
